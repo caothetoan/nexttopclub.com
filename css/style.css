@@ -5448,3 +5448,49 @@ audio {
 	width: 249px;
 	height: 145px;
 }
+
+
+/* ==========================================
+   ZALO FLOATING BUTTON
+   ========================================== */
+.zalo-float {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  z-index: 900;
+  width: 58px; height: 58px;
+  border-radius: 50%;
+  background: #0068ff;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 104, 255, 0.5);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.zalo-float::before {
+  content: '';
+  position: absolute;
+  inset: -9px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 104, 255, 0.3);
+  animation: pulse 2s ease-out infinite;
+}
+
+.zalo-float::after {
+  content: '';
+  position: absolute;
+  inset: -18px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 104, 255, 0.15);
+  animation: pulse 2s ease-out 0.35s infinite;
+}
+
+@keyframes pulse {
+  0%   { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+.zalo-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 32px rgba(0, 104, 255, 0.65);
+}
+
+.zalo-float svg { position: relative; z-index: 1; }
